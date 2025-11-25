@@ -15,12 +15,12 @@ function Blanko() {
     const randomIndex = Math.floor(Math.random() * strs.length);
     const strng = strs[randomIndex].toString();
     const sMap = strng.split("");
-
+    console.log(sMap, sMap.length)
     const indices = new Set();
 
     while (indices.size < 3) {
       const r = Math.floor(Math.random() * sMap.length);
-      indices.add(r);
+      (strng[r] === " ") ? console.log('space') : indices.add(r);
     }
 
     return { sMap, indices };
