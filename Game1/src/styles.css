@@ -57,7 +57,7 @@ span h1 {
     margin: 0 5px 0 5px;
 }
 
-.dashboardDiv {
+.mainDiv {
     height: 85vh;
     align-content: center;
 }
@@ -80,3 +80,25 @@ span h1 {
     color: red;
 }
 
+.grid {
+    display: flex;
+    justify-content: center;
+
+}
+
+.letter {
+    height: 50px;
+    width: 50px;
+    border: dashed 1px;
+    padding: 10px;
+}
+
+.numbers {
+    margin: 0 5px;
+}
+
+.letterInput {
+    background:#eeeeee;
+    width: 100%;
+    text-align: center;
+}

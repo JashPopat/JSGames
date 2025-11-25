@@ -1,7 +1,7 @@
 import gameImage from './assets/game.png';
 import { Link } from "react-router-dom";
 
-function header () {
+function Header () {
     return (
         <>
             <div className="w-full header align-center">
@@ -25,4 +25,4 @@ function header () {
     )
 }
 
-export default header;
+export default Header;

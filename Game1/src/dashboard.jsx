@@ -1,6 +1,6 @@
 import {useState, useEffect, react} from "react"
 
-function dashboard () {
+function Dashboard () {
     const [gamesWon, setGamesWon] = useState(0)
     
     // Fetch initial score from API
@@ -37,7 +37,7 @@ function dashboard () {
     }
 
     return (
-        <div className="dashboardDiv">
+        <div className="mainDiv">
             <h1 className = 'dashboardText'>Please choose an option from the navbar</h1>
             <div className="gamesSpan">
                 <h1 className = ''>Games won: {gamesWon}</h1>
@@ -48,4 +48,4 @@ function dashboard () {
         
 }
 
-export default dashboard;
+export default Dashboard;

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./dashboard";
 import Header from "./header";
 import Footer from "./footer";
+import Blanko from "./blanko"
 import './styles.css'
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
           <Header/>
           <Routes>
             <Route path="/" element={<Dashboard/>} />
-            <Route path="/blanko" element={<Dashboard/>} />
+            <Route path="/blanko" element={<Blanko/>} />
             <Route path="/slido" element={<Dashboard/>} />
             <Route path="/tetro" element={<Dashboard/>} />
           </Routes>
