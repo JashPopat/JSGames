@@ -1,13 +1,19 @@
 @import "tailwindcss";
 
-@media (min-width: 799px) {
+@media (min-width: 800px) {
     .headerBigText {
+        display: flex;
+    }
+    .headerSmallText {
         display: none;
     }
 }
 
-@media (max-width: 799px) {
+@media (max-width: 800px) {
     .headerSmallText {
+        display: flex;
+    }
+    .headerBigText {
         display: none;
     }
 }
@@ -20,6 +26,14 @@
     align-items: center;
     background-color: #eeeeee;
     height: 80px;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    //padding: 0 20px 0 20px;
+    align-items: center;
+    background-color: #999999;
+    height: 50px;
 }
 
 .headerUnder {
@@ -34,11 +48,35 @@
 }
 
 .headerBigText {
-    display: flex
 }
 
 .headerSmallText {
-    display: flex
 }
 
+span h1 {
+    margin: 0 5px 0 5px;
+}
+
+.dashboardDiv {
+    height: 85vh;
+    align-content: center;
+}
+
+.dashboardText {
+    color: red;
+    font-size: 2em;
+    text-align: center;
+    
+}
+
+.gamesSpan {
+    display: flex;
+    justify-content: center;
+    align: center;
+    gap: 5px;
+}
+
+.resetbtn {
+    color: red;
+}
 
