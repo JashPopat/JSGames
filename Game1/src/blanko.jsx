@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function Blanko() {
-  const [gameData] = useState(() => {
+  const initializeGame = () => {
     const strs = [
       "the fat cats",
       "larger frogs",
@@ -30,7 +30,9 @@ function Blanko() {
     console.log(swap);
 
     return { swap, alph };
-  });
+  };
+
+  const [gameData, setGameData] = useState(initializeGame());
   const [inputs, setInputs] = useState({});
 
   const handleInputChange = (index, value) => {
@@ -41,6 +43,11 @@ function Blanko() {
 
   };
   const { swap, alph } = gameData;
+
+  const resetGame = () => {
+    setGameData(initializeGame());
+  }
+
   const checkAnswers = () => {
     const results = swap.map(item => ({
         index: item.index,
@@ -57,11 +64,11 @@ function Blanko() {
 }
 
     const restart = () => {
-        console.log('done!')
         const current = parseInt(localStorage.getItem('gamesWon') || '0', 10);
         const wins = current + 1;
         localStorage.setItem('gamesWon', String(wins));
         console.log('wins now', wins);
+        console.log('done!')
         handleClick();
     }
 
@@ -81,6 +88,7 @@ function Blanko() {
   
   return (
     <div className="mainDiv">
+        <div>
       {alph.map((val, i) => {
         return (
           <span key={i} className="letter">
@@ -94,6 +102,8 @@ function Blanko() {
           </span>
         );
       })}
+      </div>
+      <button className="resetBtn" onClick={resetGame}>Reset</button>
     </div>
   );
 }

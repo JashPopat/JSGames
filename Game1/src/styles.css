@@ -1,106 +1,121 @@
 @import "tailwindcss";
 
 @media (min-width: 800px) {
-    .headerBigText {
-        display: flex;
-    }
-    .headerSmallText {
-        display: none;
-    }
+  .headerBigText {
+    display: flex;
+  }
+  .headerSmallText {
+    display: none;
+  }
 }
 
 @media (max-width: 800px) {
-    .headerSmallText {
-        display: flex;
-    }
-    .headerBigText {
-        display: none;
-    }
+  .headerSmallText {
+    display: flex;
+  }
+  .headerBigText {
+    display: none;
+  }
 }
 
-.header{
-    display: flex;
-    position: fixed;
-    justify-content: space-between;
-    //padding: 0 20px 0 20px;
-    align-items: center;
-    background-color: #eeeeee;
-    height: 80px;
+.header {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  /*padding: 0 20px 0 20px;*/
+  align-items: center;
+  background-color: #eeeeee;
+  height: 80px;
 }
-.footer{
-    display: flex;
-    justify-content: space-between;
-    //padding: 0 20px 0 20px;
-    align-items: center;
-    background-color: #999999;
-    height: 50px;
+.footer {
+  display: flex;
+  justify-content: space-between;
+  /*padding: 0 20px 0 20px;*/
+  align-items: center;
+  background-color: #999999;
+  height: 50px;
 }
 
 .headerUnder {
-    width: 100%;
-    height: 80px;
+  width: 100%;
+  height: 80px;
 }
 
 .headerImg {
-    height: 50px;
-    width: 50px;
-    margin: 15px;
-}
-
-.headerBigText {
-}
-
-.headerSmallText {
+  height: 50px;
+  width: 50px;
+  margin: 15px;
 }
 
 span h1 {
-    margin: 0 5px 0 5px;
+  margin: 0 5px 0 5px;
 }
 
 .mainDiv {
-    height: 85vh;
-    align-content: center;
-    text-align:center;
+  height: 88vh;
+  align-content: center;
+  text-align: center;
 }
 
 .dashboardText {
-    color: red;
-    font-size: 2em;
-    text-align: center;
-    
+  color: red;
+  font-size: 2em;
+  text-align: center;
 }
 
 .gamesSpan {
-    display: flex;
-    justify-content: center;
-    align: center;
-    gap: 5px;
+  display: flex;
+  justify-content: center;
+  align: center;
+  gap: 5px;
 }
 
 .resetbtn {
-    color: red;
+  color: red;
 }
 
 .grid {
-    display: flex;
-    
-
+  display: flex;
 }
 
 .letter {
-    height: 50px;
-    width: 50px;
-    border: dashed 1px;
-    padding: 10px;
+  height: 50px;
+  width: 50px;
+  border: dashed 1px;
+  padding: 10px;
 }
 
 .numbers {
-    margin: 0 5px;
+  margin: 0 5px;
 }
 
 .letterInput {
-    background:#eeeeee;
-    width: 2%;
-    text-align: center;
+  background: #eeeeee;
+  width: 2%;
+  text-align: center;
 }
 
+.resetBtn {
+  margin-top: 20px;
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.grid-container { 
+  text-align: center;
+  align-content: center;
+}
+
+.grid-board {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  border: 1px solid #333;
+  width: 450px;
+  margin: 0 auto 20px;
+}
+
+.grid-item {
+  border: 1px solid black;
+}
