@@ -1,4 +1,4 @@
-import { useState, useEffect, react } from "react";
+import { useState, useEffect } from "react";
 import s1 from "./assets/1.png";
 import s2 from "./assets/2.png";
 import s3 from "./assets/3.png";
@@ -8,64 +8,75 @@ import s6 from "./assets/6.png";
 import s7 from "./assets/7.png";
 import s8 from "./assets/8.png";
 
-const solved = [s1, s2, s3, s4, s5, s6, s7, s8, null];
-const images = [s1, s2, s3, s4, s5, s6, s7, s8, null];
+// The solved state of the board
+const solvedBoard = [s1, s2, s3, s4, s5, s6, s7, s8, null];
+
 function shuffleArray(array) {
-  let currentIndex = array.length,
-    randomIndex;
-
-  // While there remain elements to shuffle.
-  while (currentIndex !== 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
+  // Fisher-Yates shuffle algorithm
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
-function changePosition() {
-    alert();
-}
-
-
 function Slido() {
   const [board, setBoard] = useState([]);
-  const [active, setActive] = useState(false);
-
-  const initGame = () => {
-    shuffleArray(images);
-    setBoard(images);
-    console.log(active);
-  };
-
-
 
   useEffect(() => {
-    initGame();
+    const shuffledImages = [...solvedBoard];
+    shuffleArray(shuffledImages);
+    setBoard(shuffledImages);
   }, []);
+
+  const areNeighbors = (index1, index2) => {
+    const row1 = Math.floor(index1 / 3);
+    const col1 = index1 % 3;
+    const row2 = Math.floor(index2 / 3);
+    const col2 = index2 % 3;
+
+    // Check for horizontal adjacency
+    if (row1 === row2 && Math.abs(col1 - col2) === 1) {
+      return true;
+    }
+    // Check for vertical adjacency
+    if (col1 === col2 && Math.abs(row1 - row2) === 1) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleTileClick = (clickedIndex) => {
+    const emptyIndex = board.findIndex((item) => item === null);
+
+    if (areNeighbors(clickedIndex, emptyIndex)) {
+      const newBoard = [...board];
+      // Swap the clicked tile with the empty tile
+      [newBoard[clickedIndex], newBoard[emptyIndex]] = [newBoard[emptyIndex], newBoard[clickedIndex]];
+      setBoard(newBoard);
+    }
+  };
+
+  const solvePuzzle = () => {
+    setBoard(solvedBoard);
+  };
 
   return (
     <div className="mainDiv">
       <div className="grid-container">
-        {console.log("Shuffled:", board)}
-        <div className="grid-board">{board.map((val, i) => {
-          return (
+        <div className="grid-board">
+          {board.map((val, i) => (
             <div
               key={i}
-              className="grid-item"
-              >
-                <img src={val}/>
-              </div>
-          );
-        })}
-              </div>
-              </div>
+              className="grid-item hover:cursor-pointer"
+              onClick={() => handleTileClick(i)}
+            >
+              {val && <img src={val} alt={`tile-${i}`} />}
+            </div>
+          ))}
+        </div>
+        <button className="resetBtn" onClick={solvePuzzle}>Solve</button>
       </div>
+    </div>
   );
 }
 export default Slido;

@@ -111,11 +111,11 @@ span h1 {
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(3, 150px);
-  border: 1px solid #333;
+  border: 1px solid red;
   width: 450px;
   margin: 0 auto 20px;
 }
 
 .grid-item {
-  border: 2px solid black;
+  border: 2px solid red;
 }
